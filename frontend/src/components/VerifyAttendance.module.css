@@ -1,0 +1,127 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+  background-color: none;
+  font-family: 'Comic Sans MS';
+}
+
+.student-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 300px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease;
+}
+
+.student-name {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.status-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.absent {
+  color: red;
+}
+
+.present {
+  color: green;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/**
+ * ==============================================
+ * Dot Flashing
+ * ==============================================
+ */
+ .dot-flashing {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #075679;
+  color: #075679;
+  margin-left: -35px;
+  animation: dot-flashing 1s infinite linear alternate;
+  animation-delay: 0.5s;
+}
+.dot-flashing::before, .dot-flashing::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+  .dot-flashing::before {
+    left: -15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #075679;
+    color: #075679;
+    animation: dot-flashing 1s infinite alternate;
+    animation-delay: 0s;
+  }
+  .dot-flashing::after {
+    left: 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #075679;
+    color: #075679;
+    animation: dot-flashing 1s infinite alternate;
+    animation-delay: 1s;
+    content:""
+  }
+
+.updating-text {
+  margin-right: -100px;
+  font-size: 20px;
+  display: inline-block;
+  position: absolute;
+  color: #075679;
+  font-family: 'Comic Sans MS';
+  font-weight: bold;
+}
+.text {
+  font-family: 'Comic Sans MS';
+  color: #075679;
+  
+}
+@keyframes dot-flashing {
+  0% {
+    background-color: #075679;
+  }
+  50%, 100% {
+    background-color: rgba(12, 89, 145, 0.2);
+  }
+}
+

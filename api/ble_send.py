@@ -3,17 +3,19 @@ def ble_send():
     import json
     import time
     import pika
+    from config import BLE_LINK
     connection = pika.BlockingConnection(
         pika.ConnectionParameters('localhost'))
     channel = connection.channel()
     channel.queue_declare(queue='hello')
     start_time = time.time()
     while True:
-        link = "http://10.42.0.236:3001/devices/"
+
+        link = BLE_LINK
         f = requests.get(link)
         response = json.loads(f.text)
         for i in response['devices']:
-            device_link = "http://10.42.0.236:3001/devices/"+i
+            device_link = link+i
             o = requests.get(device_link)
             response = json.loads(o.text)
             msg = response['devices'][i]['raddec']

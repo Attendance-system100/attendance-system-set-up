@@ -8,6 +8,8 @@ import random
 def name_gen():
     import os
     from datetime import date
+    
+
 
     today = date.today()
     # Month abbreviation, day and year
@@ -29,11 +31,13 @@ def name_gen():
 
 def vid_gen():
     import cv2
+    from config import RTSP_LINK
+
     # RTSP link of the video feed
-    rtsp_link = "http://10.42.0.71:8080/video"
+    # rtsp_link = video_stream_link
 
     # Cr    eate a VideoCapture object
-    cap = cv2.VideoCapture(rtsp_link)
+    cap = cv2.VideoCapture(RTSP_LINK)
 
     # Check if the video capture is opened successfully
     if not cap.isOpened():
